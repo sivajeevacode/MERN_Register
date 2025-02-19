@@ -6,11 +6,11 @@ const App = () => {
     const [name,setName] =useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-
+    axios.defaults.withcredentials = true;
     const submit = (e)=>{
       e.preventDefault();
 
-      axios.post("http://localhost:3000/register",{name,email,password})
+      axios.post("https://mern-register-api.vercel.app/register",{name,email,password})
       .then((user)=>{
         console.log(user);
         alert(user.data);
